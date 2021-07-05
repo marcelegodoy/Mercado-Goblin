@@ -3,7 +3,8 @@ module Admin
     before_action :set_product, only: %i[show edit update destroy]
 
     def index
-      @products = Product.all
+      @q = Product.ransack(params[:q])
+      @products = @q.result
     end
 
     def show

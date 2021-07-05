@@ -1,24 +1,38 @@
-<h1>Produtos</h1>
+<h2>Produtos</h2>
+<%= link_to "Criar novo produto", new_admin_product_path %>
 
-<% @products.each do |product| %>
-  <ul>
-    <li>
-      Nome: <%= product.name %>
-    </li>
-    <li>
-      Subtítulo: <%= product.subtitle %>
-    </li>
-    <li>
-      Texto: <%= product.description %>
-    </li>
-    <li>
-      Valor: <%= product.price %>
-    </li>
-    <li>
-      Quantidade em estoque: <%= product.quantity %>
-    </li>
-    <li>
-      Está ativo? <%= product.active? : "Sim" : "Não" %>
-    </li>
-  </ul>
+<table class="table table-striped table-custom">
+  <tr>
+    <th>Nome</th>
+    <th>Subtítulo</th>
+    <th>Preço</th>
+    <th>Quantidade</th>
+    <th>Ativo</th>
+    <th>Ações</th>
+  </tr>
+<% if @products.empty? || @products.nil? %>
+  <tr>
+    <td colspan='6' class='text-center'>Nenhum produto foi criado</td>
+  </tr>
+<% else %>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.subtitle %></td>
+      <td><%= number_to_currency(product.price/100, unit: "R$", separator: ",", delimiter: ".") %></td>
+      <td><%= product.quantity %></td>
+      <td><%= product.active? ? "Ativado" : "Desativado" %></td>
+      <td class="border-secondary border-right text-center">
+        <%= link_to admin_product_path(product) do %>
+          <i class="far fa-eye"></i>
+        <% end %>
+        <%= link_to edit_admin_product_path(product) do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to admin_product_path(product), method: :delete, data: { confirm: 'Deseja deletar esse produto?' } do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
 <% end %>
