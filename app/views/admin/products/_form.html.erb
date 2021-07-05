@@ -1,0 +1,30 @@
+<%= simple_form_for([:admin, @product]) do |f| %>
+
+  <%= f.input :name,
+      label: "Nome do produto" %>
+
+  <%= f.input :subtitle,
+      label: "Subtítulo do produto" %>
+
+  <%= f.input :price,
+      as: :numeric,
+      label: "Valor de cobrança",
+      placeholder: "" %>
+
+  <%= f.input :quantity,
+      as: :numeric,
+      label: "Quantidade em estoque" %>
+
+  <%= f.collection_radio_buttons  :active,
+                                  [[true, 'SIM'] , [false, 'NÃO']],
+                                  :first, :last,
+                                  label: "Deixar produto visível para venda?" %>
+
+  <%= f.rich_text_area :description,
+      class: "form_with_rich_text",
+      required: true,
+      label: false,
+      placeholder: "Descrição do produto" %>
+
+  <%= f.submit "Salvar produto" %>
+<% end %>

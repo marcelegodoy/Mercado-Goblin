@@ -1,3 +1,5 @@
 class Product < ApplicationRecord
-  validates_presence_of :name, :subtitle, :description
+  has_rich_text :description
+
+  validates_presence_of :name, :subtitle
 end
