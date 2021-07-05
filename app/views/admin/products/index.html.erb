@@ -1,0 +1,22 @@
+<% @products.each do |product| %>
+  <ul>
+    <li>
+      Nome: <%= product.name %>
+    </li>
+    <li>
+      Subtítulo: <%= product.subtitle %>
+    </li>
+    <li>
+      Texto: <%= product.description %>
+    </li>
+    <li>
+      Valor: <%= product.price %>
+    </li>
+    <li>
+      Quantidade em estoque: <%= product.quantity %>
+    </li>
+    <li>
+      Está ativo? <%= product.active? : "Sim" : "Não" %>
+    </li>
+  </ul>
+<% end %>
