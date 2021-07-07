@@ -34,13 +34,34 @@
 #navMobile {
   display: flex;
   position: relative;
-  #navMobileContent {
+
+  .nav-toggle {
+    padding: 0 1.5rem;
+    z-index: 10000;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  #navMobileMenu {
+    background-color: black;
+    display: none;
     position: absolute;
-    top: 65px;
-    right: 25px;
-    text-align: right;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    text-align: center;
+    ul {
+      display: flex;
+      justify-content: center;
+      margin: auto;
+      li {
+        padding: 0.25rem 0;
+      }
+    }
   }
 }
+
 #navWeb {
   display: none;
 }
@@ -50,6 +71,7 @@
   #navMobile {
     display: none;
   }
+
   #navWeb {
     display: flex;
     ul {
