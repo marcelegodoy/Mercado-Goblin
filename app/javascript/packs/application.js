@@ -30,8 +30,10 @@ import "@fortawesome/fontawesome-free/css/all"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { navMobile } from "./components/nav_mobile";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  navMobile();
 });
