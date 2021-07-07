@@ -1,25 +1,59 @@
 <nav class="nav">
-  <div class="container">
-    <div class="logo">
-      <li><%= link_to "Mercado Goblin", root_path, class: "nav-link" %></li>
+  <div class="logo">
+    <li><%= link_to "MORI'S", root_path, class: "amarante" %></li>
+  </div>
+
+  <div id="navWeb" class="main_list">
+    <ul>
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#">Timeline</a></li>
+      <li><a href="#">Contato</a></li>
+      <li><a href="#">Portfólio</a></li>
+      <li><a href="#">Mercado Goblin</a></li>
+      <% if user_signed_in? %>
+        <li><%= link_to "Sair", destroy_user_session_path, method: :delete, class: "amarante" %></li>
+      <% else %>
+        <li><%= link_to "Entrar", new_user_session_path, class: "amarante" %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="navMobile">
+      <div class='d-flex'>
+      <button class='navbar-toggler pr-3' type='button' data-toggle='collapse' data-target='#navMobileContent' aria-controls='navMobileContent' aria-expanded='false' aria-label='Toggle navigation'>
+        <span class='navbar-toggler-icon'>
+          <i class="fas fa-bars" style="color:white;"></i>
+        </span>
+      </button>
     </div>
-    <div id="mainListDiv" class="main_list">
-      <ul class="navlinks">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
-        <% end %>
+
+    <div class='collapse navbar-collapse' id='navMobileContent'>
+      <ul class='navbar-nav d-flex'>
+        <li class='nav-item'>
+          <li><a class="amarante" href="#">Sobre</a></li>
+        </li>
+        <li class='nav-item'>
+          <li><a class="amarante" href="#">Timeline</a></li>
+        </li>
+        <li class='nav-item'>
+          <li><a class="amarante" href="#">Contato</a></li>
+        </li>
+        <li class='nav-item'>
+          <li><a class="amarante" href="#">Portfólio</a></li>
+        </li>
+        <li class='nav-item'>
+          <li><a class="amarante" href="#">Mercado Goblin</a></li>
+        </li>
+
+
+        <li class='nav-item'>
+          <% if user_signed_in? %>
+            <li><%= link_to "Sair", destroy_user_session_path, method: :delete, class: "amarante" %></li>
+          <% else %>
+            <li><%= link_to "Entrar", new_user_session_path, class: "amarante" %></li>
+          <% end %>
+        </li>
       </ul>
     </div>
-    <span class="navTrigger">
-      <i></i>
-      <i></i>
-      <i></i>
-    </span>
   </div>
 </nav>
