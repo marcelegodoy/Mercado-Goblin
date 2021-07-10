@@ -1,16 +1,8 @@
 <section class="home">
 </section>
 
-<h1 class="text-center">Produtos</h1>
-
-<% @products.each do |product| %>
-  <%= link_to product_path(product) do %>
-    <div>
-      <h5><%= product.name %></h5>
-      <p><%= product.subtitle %></p>
-    </div>
-  <% end %>
-<% end %>
-
-<div>
-</div>
+<%= render "about" %>
+<%= render "timeline" %>
+<%= render "portfolio" %>
+<%= render "shop" %>
+<%= render "contact" %>
